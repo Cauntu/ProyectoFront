@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Página web</title>
+
+</head>
+
+<body>
+<header>
+
+  <nav>
+    <img id="practica" src="../assets/images/logo.png">
+    <a routerLink="/">Mis historietas</a>
+    <a routerLink="/profile">Mis cosas</a>
+    <a routerLink="/friends">Mis colegas</a>
+    <a routerLink="/events">Eventos</a>
+  </nav>
+  <section class="cabecera">
+    <img src="../assets/images/persona.jpg" />
+    <h2>Basilio Martin</h2>
+  </section>
+</header>
+
+
+
+  <section class=rutas>
+    <router-outlet></router-outlet>
+  </section>
+</body>
+
+<footer>
+  <p>Copyright Yo Mismo - 2019 - Ulab EOI</p>
+  <p>Rube Garcia - Ruben Esquerdo - Antonio Mas</p>
+</footer>
+
+</html>

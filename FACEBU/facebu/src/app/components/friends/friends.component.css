@@ -1,0 +1,10 @@
+.padre {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    /*margin:auto;
+    padding: 1em 1em;*/
+    border: 1px solid ;
+    justify-content: space-around;
+}

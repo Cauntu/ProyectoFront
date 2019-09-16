@@ -1,0 +1,37 @@
+<section>
+    <section class=rutas>
+        <!-- nuevo event-->
+
+        <form class="formulario" #f="ngForm" (ngSubmit)="addEvent(f)" novalidate>
+            <fieldset>
+                <legend>Nuevo Evento</legend>
+                Nombre evento:<input name="eventName" ngModel required #eventName="ngModel"><br><br>
+                Descripción evento:<input name="eventDescription" ngModel required #eventDescription="ngModel"><br><br>
+                Fecha evento:<input name="eventDate" ngModel><br><br>
+                <button>Crear</button>
+            </fieldset>
+        </form>
+
+    </section>
+    <p> Mis Eventos</p>
+    <section class="miseventos">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, dolore aliquid. Dolor ipsam neque reprehenderit nam atque. Alias ab facilis maxime autem, eos rerum enim placeat! Vitae sint laudantium qui.</p>
+    </section>
+    <p> Explorar Eventos</p>
+    <section class=bloque>
+        <!-- lista de TODOS los eventos-->
+        <ul>
+            <li type="none" *ngFor="let ev of allEvents">
+                Nombre: {{ev.name}}
+                <br>Descripción: {{ev.description}}<br>
+                Fecha:<br>{{ev.eventDate}}
+                <button (click)="deleteEventById(ev.id)">X</button>
+            </li>
+
+
+        </ul>
+
+
+    </section>
+
+</section>

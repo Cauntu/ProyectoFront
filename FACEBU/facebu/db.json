@@ -3,7 +3,7 @@
     {
       "name": "USUARIO1",
       "surname": "APELLIDOS1",
-      "birdthDate": "12/12/2019",
+      "birthDate": "12/12/2019",
       "startDate": "12/12/2019",
       "user": "user",
       "pass": "pass",
@@ -12,7 +12,7 @@
     {
       "name": "USUARIO2",
       "surname": "APELLIDOS2",
-      "birdthDate": "12/12/2019",
+      "birthDate": "12/12/2019",
       "startDate": "12/12/2019",
       "user": "user",
       "pass": "pass",
@@ -149,18 +149,6 @@
   ],
   "relationship": [
     {
-      "id": "111111111",
-      "user1": 1,
-      "user2": 1,
-      "status": "pending"
-    },
-    {
-      "id": "1111111111",
-      "user1": 1,
-      "user2": 1,
-      "status": "pending"
-    },
-    {
       "id": "11111111111",
       "user1": 1,
       "user2": 2,
@@ -212,6 +200,36 @@
       "id": "zxFS8Mu",
       "user1": 1,
       "user2": 2,
+      "status": "pending"
+    },
+    {
+      "id": "5NYn_QD",
+      "user1": 1,
+      "user2": 1,
+      "status": "pending"
+    },
+    {
+      "id": "8yZ7gLQ",
+      "user1": 1,
+      "user2": 2,
+      "status": "pending"
+    },
+    {
+      "id": "BJ3kN6f",
+      "user1": 1,
+      "user2": 1,
+      "status": "pending"
+    },
+    {
+      "id": "iscziI3",
+      "user1": 1,
+      "user2": 2,
+      "status": "pending"
+    },
+    {
+      "id": "OQhXJra",
+      "user1": 1,
+      "user2": 1,
       "status": "pending"
     }
   ],

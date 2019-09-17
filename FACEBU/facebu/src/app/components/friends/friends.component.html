@@ -1,4 +1,5 @@
 <section class="padre">
+
     <section *ngIf="myFriends" class="amigos" >
         <p> My Friends</p>
 
@@ -19,9 +20,19 @@
         <ul>
             <li *ngFor="let us of allUsers">
                 {{us.name}} {{us.surname}}<br>
-                {{us.birthDate}}<br>
+                
                 <button *ngIf= "isMyFriend(us) == false" (click)="addFriend(us)">Añadir amigo</button>
+                <p *ngIf= "isMyFriend(us)" >Ya es tu coleguita</p>
             </li>
         </ul>
     </section>
+</section>
+
+<section>
+
+    <!--
+        {{us.name}} {{us.surname}}<br>
+        Cumpleaños: {{us.birthDate}}<br>
+        Se unió a Facebu el: {{us.startDate}}<br>
+-->
 </section>

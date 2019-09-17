@@ -1,10 +1,27 @@
 <section class="padre">
     <section class="amigos">
-        Aqui lista
+        <p> My Friends</p>
+
+        <ul>
+            <li *ngFor="let us of myFriends">
+                    {{us.name}} {{us.surname}}<br>
+                    {{us.birthDate}}<br>
+                    <button (click)="deleteFriend(us)">X</button>
+            </li>
+
+        </ul>
+
     </section>
+
 
     <section class="nuevos">
-        Aqui datos del usuario
+        <p> Usuarios </p>
+        <ul>
+            <li *ngFor="let us of allUsers">
+                {{us.name}} {{us.surname}}<br>
+                {{us.birthDate}}<br>
+                <button (click)="addFriend(us)">Añadir amigo</button>
+            </li>
+        </ul>
     </section>
-
 </section>

@@ -1,0 +1,33 @@
+.padre{
+    display: flex;
+}
+.datos
+{
+    margin-top: 0;
+    border-style: dashed;
+    background-color:slategray;
+    font-family: courier;
+}
+.mishistorias{
+    border-style: dashed;
+    background-color: navajowhite;
+    margin-top:2%;
+    margin-left: 10%;
+    margin-right: 10%;
+    height: 200px;
+    width: 300px;
+    overflow: auto;
+    font-family: courier;
+
+}
+.miscolegas{
+    margin-top:2%;
+    overflow: auto;
+    border-style: dashed;
+    background-color: navajowhite;
+    margin-right: 10%;
+    height: 200px;
+    width: 300px;
+    font-family: courier;
+
+}

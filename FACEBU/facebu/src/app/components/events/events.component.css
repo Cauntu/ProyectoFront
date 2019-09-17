@@ -8,8 +8,6 @@ body{
     margin: 0px;
     background-color:rgb(211, 209, 205);
 }
-
-
 footer{
     margin-left: 20%;
     margin-right: 20%;
@@ -53,8 +51,15 @@ section > img{
         overflow-y: auto;
         margin-bottom: 5%; 
 }
+.icons{
+    width: 20px;
+    height: 20px;
+}
 li{
     border-style: ridge;
+    margin-left: -32px;
+    margin-right: 8px;
+    margin-bottom: 5px;
 }
 .bloque{
     margin-left: 8%;
@@ -70,7 +75,7 @@ li{
 footer > p{
     
     font-family: Courier;
-    color:rgb(68, 67, 67);
+    color:darkgrey;
     text-decoration-line: none;
 }
 nav{

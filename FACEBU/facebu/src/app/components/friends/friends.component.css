@@ -5,6 +5,22 @@
     align-items: center;
     /*margin:auto;
     padding: 1em 1em;*/
-    border: 1px solid ;
     justify-content: space-around;
+}
+.amigos{
+    background-color:burlywood;
+    border-style: dashed;
+    height:300px;
+    width:250px;
+    overflow-y: auto;
+    margin-top: 2%;
+
+}
+.nuevos{
+    margin-top: 2%;
+    background-color:burlywood;
+    border-style: dashed;
+    height:300px;
+    width:275px;
+    overflow-y: auto;
 }

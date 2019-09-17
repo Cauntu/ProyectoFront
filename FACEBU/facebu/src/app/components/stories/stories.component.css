@@ -1,0 +1,17 @@
+.mishistorias{
+    border-style: dashed;
+    background-color: tan;
+    height: 200px;
+    overflow: auto;
+    font-family: courier;
+}
+p{
+    font-family: courier;
+}
+fieldset{
+    font-family: courier;
+}
+/*.otrashistorias{
+    border-style: dashed;
+    background-color: cornflowerblue;
+}*/

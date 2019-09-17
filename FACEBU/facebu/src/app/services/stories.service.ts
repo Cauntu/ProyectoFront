@@ -18,7 +18,7 @@ const httpOptions = {
 export class StoriesService {
 
   private msgUrl = 'http://localhost:3000/messages'
-  private reactUrl = 'http://localhost:3000/reactions'
+  private reactUrl = 'http://localhost:3000/reaction'
   
   private allMsg = new Array<Message>();
   private allReacts = new Array<Reaction>();

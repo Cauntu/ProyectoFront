@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 
@@ -53,29 +53,6 @@ export class FriendsComponent implements OnInit {
 
   };
 
-  ngOnChange(){
-
-    this.friendService.getAllRels().subscribe(
-      (data: Relationship[]) => this.myRels = data,
-      error => console.error(error),
-      () => console.log('Relationships refreshed')
-    );
-
-      //puede causar bucle
-    for (let x of this.myRels) {
-
-      if (x.user1 == this.myId) {
-        this.myFriends.push(
-          this.allUsers.find(y => x.user2 == y.id));
-      }
-      else {
-        this.myFriends.push(
-          this.allUsers.find(y => x.user1 == y.id));
-      }
-    }
-    console.log('Friends refreshed');
-
-  }
 
   addFriend(friend: User) {
 
@@ -88,7 +65,7 @@ export class FriendsComponent implements OnInit {
 
 
     this.friendService.addFriend(rel).subscribe(
-      rel => this.myRels.push(rel)
+      rel => {this.myRels.push(rel); this.myFriends.push(friend); }
     );
   };
 
@@ -99,7 +76,8 @@ export class FriendsComponent implements OnInit {
 
     this.friendService.deleteFriend(rel.id).subscribe(
       data => {
-        this.myRels = this.myRels.filter(x => { return x.id != rel.id })
+        this.myRels = this.myRels.filter(x => { return x.id != rel.id });
+        this.myFriends = this.myFriends.filter(x => { return x.id != friend.id });
       });
   };
 
@@ -119,7 +97,7 @@ export class FriendsComponent implements OnInit {
 
   }
 
-  searchFriendsByName(name: String) : Array<User>{
+  searchFriendsByName(name: String): Array<User> {
     return this.myFriends.filter(x => x.name.match('?:[' + name + ']|$'));
   }
 

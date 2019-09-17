@@ -31,7 +31,9 @@ export class FriendsService {
 
   getAllRels() {
 
-    return this.http.get(this.relUrl + '?user1=' + this.myId + '|user2=' + this.myId);
+    return this.http.get(this.relUrl);
+
+
   };
 
   getFriend(id: number){

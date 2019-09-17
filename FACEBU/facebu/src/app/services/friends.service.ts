@@ -15,11 +15,11 @@ const httpOptions = {
 })
 export class FriendsService {
 
-  private myId = 1;
-  private myFriends = new Array<Relationship>();
+  //private myId = 1;
+  //private myFriends = new Array<Relationship>();
   private allRels = new Array<Relationship>();
   
-  private relUrl = 'http://localhost:3000/relationships';
+  private relUrl = 'http://localhost:3000/relationship';
   private usersUrl = 'http://localhost:3000/users';
 
 

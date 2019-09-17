@@ -49,7 +49,33 @@ export class FriendsComponent implements OnInit {
           this.allUsers.find(y => x.user1 == y.id));
       }
     }
+    console.log('Friends loaded');
+
   };
+
+  ngOnChange(){
+
+    this.friendService.getAllRels().subscribe(
+      (data: Relationship[]) => this.myRels = data,
+      error => console.error(error),
+      () => console.log('Relationships refreshed')
+    );
+
+      //puede causar bucle
+    for (let x of this.myRels) {
+
+      if (x.user1 == this.myId) {
+        this.myFriends.push(
+          this.allUsers.find(y => x.user2 == y.id));
+      }
+      else {
+        this.myFriends.push(
+          this.allUsers.find(y => x.user1 == y.id));
+      }
+    }
+    console.log('Friends refreshed');
+
+  }
 
   addFriend(friend: User) {
 

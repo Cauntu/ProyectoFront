@@ -37,6 +37,23 @@ export class EventsComponent implements OnInit {
       error => console.error(error),
       () => console.log('Assistances loaded')
     );
+
+  }
+  
+  ngOnChange(){
+
+    this.eventService.getAllEvents().subscribe(
+      (data: Event[]) => this.allEvents = data,
+      error => console.error(error),
+      () => console.log('Events refreshed')
+    );
+
+    this.eventService.getAllAssistances().subscribe(
+      (data: Assist[]) => this.allAssists = data,
+      error => console.error(error),
+      () => console.log('Assistances refreshed')
+    );
+
   }
 
 

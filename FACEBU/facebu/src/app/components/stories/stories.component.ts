@@ -40,6 +40,22 @@ export class StoriesComponent implements OnInit {
 
   }
 
+  ngOnChange(){
+
+    this.storyService.getAllStories().subscribe(
+      (data: Message[]) => this.allMsg = data,
+      error => console.error(error),
+      () => console.log('Stories refreshed')
+    );
+
+    this.storyService.getAllReactions().subscribe(
+      (data: Reaction[]) => this.allReacts = data,
+      error => console.error(error),
+      () => console.log('Reactions refreshed')
+    );
+
+  }
+
   addStory(content: string) {
 
     let story: Message = {

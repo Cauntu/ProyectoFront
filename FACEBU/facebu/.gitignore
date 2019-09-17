@@ -4,7 +4,6 @@
 /dist
 /tmp
 /out-tsc
-
 # Only exists if Bazel was run
 /bazel-out
 
@@ -31,7 +30,6 @@ speed-measure-plugin*.json
 !.vscode/launch.json
 !.vscode/extensions.json
 .history/*
-/FACEBU/facebulocal.code-workspace
 
 # misc
 /.sass-cache
@@ -46,6 +44,4 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
-
-# Custom
-/db.json
+ /FACEBU/facebulocal.code-workspace

@@ -72,13 +72,13 @@ export class FriendsService {
 
     return this.http.get(this.usersUrl + '?name_like=' + name);
 
-  }
+  };
 
   searchFriendsByName(name: String) {
 
     return this.http.get(this.usersUrl + '?name_like=' + name);
 
-  }
+  };
 
 
 }

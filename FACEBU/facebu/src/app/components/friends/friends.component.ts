@@ -97,6 +97,14 @@ export class FriendsComponent implements OnInit {
 
   }
 
+  isMyFriend(user : User): boolean {
+    if( this.myFriends.find(x => x.id == user.id)){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
   searchFriendsByName(name: String): Array<User> {
     return this.myFriends.filter(x => x.name.match('?:[' + name + ']|$'));
   }

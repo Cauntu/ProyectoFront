@@ -1,5 +1,5 @@
 <section class="padre">
-    <section class="amigos">
+    <section *ngIf="myFriends" class="amigos" >
         <p> My Friends</p>
 
         <ul>
@@ -20,7 +20,7 @@
             <li *ngFor="let us of allUsers">
                 {{us.name}} {{us.surname}}<br>
                 {{us.birthDate}}<br>
-                <button (click)="addFriend(us)">Añadir amigo</button>
+                <button *ngIf= "isMyFriend(us) == false" (click)="addFriend(us)">Añadir amigo</button>
             </li>
         </ul>
     </section>

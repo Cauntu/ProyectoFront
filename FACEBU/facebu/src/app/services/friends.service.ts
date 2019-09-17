@@ -18,7 +18,7 @@ export class FriendsService {
   //private myId = 1;
   //private myFriends = new Array<Relationship>();
   private allRels = new Array<Relationship>();
-  
+
   private relUrl = 'http://localhost:3000/relationship';
   private usersUrl = 'http://localhost:3000/users';
 
@@ -26,31 +26,27 @@ export class FriendsService {
   constructor(private http: HttpClient) { }
 
   getAllUsers() {
-    return this.http.get('http://localhost:3000/users')
+    return this.http.get(this.usersUrl)
   }
 
   getAllRels() {
 
+    this.http.get(this.relUrl).subscribe(
+      (data: Relationship[]) => this.allRels = data,
+      error => console.error(error),
+      () => console.log('Rels4friendship loaded')
+    );
+
     return this.http.get(this.relUrl);
   };
 
-  getFriend(id: number){
+  getFriend(id: number) {
 
     return this.http.get(this.usersUrl + '?id=' + id);
   }
 
   addFriend(rel: Relationship): Observable<Relationship> {
-  
-      this.http.get(this.relUrl).subscribe(
-        (data: Relationship[]) => this.allRels = data,
-        error => console.error(error),
-        () => console.log('Users loaded')
-      );
 
-    let lastRelId: number = this.allRels[this.allRels.length -1].id;
-
-        rel.id = lastRelId +1;
-        
     return this.http.post<Relationship>(this.relUrl, rel, httpOptions);
   };
 

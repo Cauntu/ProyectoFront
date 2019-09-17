@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 
@@ -14,18 +14,18 @@ import { EventsService } from 'src/app/services/events.service';
   styleUrls: ['./events.component.css']
 })
 
-export class EventsComponent implements OnInit {
+export class EventsComponent implements OnInit{
 
   private myId = 1;
 
   private allAssists = new Array<Assist>();
   private allEvents = new Array<Event>();
   private myEvents = new Array<Event>();
-  
+
   constructor(private eventService: EventsService, private route: ActivatedRoute, private router: Router) { }
-  
+
   ngOnInit() {
-   
+
     this.eventService.getAllEvents().subscribe(
       (data: Event[]) => this.allEvents = data,
       error => console.error(error),
@@ -37,25 +37,17 @@ export class EventsComponent implements OnInit {
       error => console.error(error),
       () => console.log('Assistances loaded')
     );
+    
+    for (let x of this.allAssists) {
+
+      if (x.user == this.myId) {
+        this.myEvents.push(
+          this.allEvents.find(y => x.event == y.id));
+      }
+    }
+    console.log('Your events loaded');
 
   }
-  
-  ngOnChange(){
-
-    this.eventService.getAllEvents().subscribe(
-      (data: Event[]) => this.allEvents = data,
-      error => console.error(error),
-      () => console.log('Events refreshed')
-    );
-
-    this.eventService.getAllAssistances().subscribe(
-      (data: Assist[]) => this.allAssists = data,
-      error => console.error(error),
-      () => console.log('Assistances refreshed')
-    );
-
-  }
-
 
   addEvent(f: NgForm) {
 
@@ -66,14 +58,19 @@ export class EventsComponent implements OnInit {
       eventDate: f.value.eventDate,
       user: this.myId
     }
+   f.reset();
 
-    this.eventService.addEvent(event).subscribe(event => this.myEvents.push(event));
+    this.eventService.addEvent(event).subscribe(
+      event => { 
+        this.myEvents.push(event);  this.allEvents.push(event);}
+        );
   };
 
   deleteEvent(event: Event) {
     this.eventService.deleteEvent(event.id).subscribe(
       data => {
-        this.myEvents = this.myEvents.filter(h => { return h.id != event.id })
+        this.myEvents = this.myEvents.filter(x => { return x.id != event.id });
+        this.allEvents = this.allEvents.filter(x => { return x.id != event.id });
       }
     )
   };

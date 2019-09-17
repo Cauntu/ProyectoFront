@@ -1,10 +1,38 @@
 <section class="padre">
-    <section class="amigos">
-        Aqui lista
+
+    <section *ngIf="myFriends" class="amigos" >
+        <p> My Friends</p>
+
+        <ul>
+            <li *ngFor="let us of myFriends">
+                    {{us.name}} {{us.surname}}<br>
+                    {{us.birthDate}}<br>
+                    <button (click)="deleteFriend(us)">X</button>
+            </li>
+
+        </ul>
+
     </section>
+
 
     <section class="nuevos">
-        Aqui datos del usuario
+        <p> Usuarios </p>
+        <ul>
+            <li *ngFor="let us of allUsers">
+                {{us.name}} {{us.surname}}<br>
+                
+                <button *ngIf= "isMyFriend(us) == false" (click)="addFriend(us)">Añadir amigo</button>
+                <p *ngIf= "isMyFriend(us)" >Ya es tu coleguita</p>
+            </li>
+        </ul>
     </section>
+</section>
 
+<section>
+
+    <!--
+        {{us.name}} {{us.surname}}<br>
+        Cumpleaños: {{us.birthDate}}<br>
+        Se unió a Facebu el: {{us.startDate}}<br>
+-->
 </section>

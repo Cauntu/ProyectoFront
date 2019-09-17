@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 
@@ -17,7 +17,7 @@ export class StoriesComponent implements OnInit {
 
   private myId = 1;
 
-  private allUsers = new Array<User>();
+  //private allUsers = new Array<User>();
   private allMsg = new Array<Message>();
   private allReacts = new Array<Reaction>();
 
@@ -40,21 +40,6 @@ export class StoriesComponent implements OnInit {
 
   }
 
-  ngOnChange(){
-
-    this.storyService.getAllStories().subscribe(
-      (data: Message[]) => this.allMsg = data,
-      error => console.error(error),
-      () => console.log('Stories refreshed')
-    );
-
-    this.storyService.getAllReactions().subscribe(
-      (data: Reaction[]) => this.allReacts = data,
-      error => console.error(error),
-      () => console.log('Reactions refreshed')
-    );
-
-  }
 
   addStory(content: string) {
 
@@ -163,7 +148,7 @@ export class StoriesComponent implements OnInit {
 
       this.storyService.addReaction(re).subscribe(re => this.allReacts.push(re));
     }
-    
+
   }
 
   searchStoriesByUser(user: String) {

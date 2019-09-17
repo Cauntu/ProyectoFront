@@ -15,7 +15,17 @@
     </section>
     <p> Mis Eventos</p>
     <section class="miseventos">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, dolore aliquid. Dolor ipsam neque reprehenderit nam atque. Alias ab facilis maxime autem, eos rerum enim placeat! Vitae sint laudantium qui.</p>
+
+        <ul>
+            <li type="none" *ngFor="let ev of myEvents">
+                Nombre: {{ev.name}}
+                <br>Descripción: {{ev.description}}<br>
+                Fecha:<br>{{ev.eventDate}}
+                <button (click)="deleteEventById(ev.id)">X</button>
+            </li>
+
+        </ul>
+
     </section>
     <p> Explorar Eventos</p>
     <section class=bloque>
@@ -29,9 +39,7 @@
                 <button><img class ="icons" src="../../../assets/images/tick.png"/></button>
             </li>
 
-
         </ul>
-
 
     </section>
 
